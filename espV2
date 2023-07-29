@@ -1,0 +1,108 @@
+wait(1)
+	local color = Color3.new(255,255,255) -- you can customize this but the tracer color will not change
+	local size = UDim2.new(1,0,1,0)
+	--creates the 3d esp box and the lines
+	for i,v in pairs(game.Players:GetChildren()) do
+	   local Gui1 = Instance.new("SurfaceGui",v.Character.HumanoidRootPart)
+	    Gui1.Name = "G1"
+	    Gui1.AlwaysOnTop = true
+	    Gui1.Face = "Front"
+	   local frame1 = Instance.new("Frame")
+	     frame1.Size =  size
+	     frame1.Parent = v.Character.HumanoidRootPart.G1
+		 frame1.BackgroundTransparency = 0.5
+		 frame1.BackgroundColor3 = color
+		local Gui2 = Instance.new("SurfaceGui",v.Character.HumanoidRootPart)
+	    Gui2.Name = "G2"
+	    Gui2.AlwaysOnTop = true
+		Gui2.Face = "Back"
+	   local frame2 = Instance.new("Frame")
+	     frame2.Size =  size
+	     frame2.Parent = v.Character.HumanoidRootPart.G2
+		 frame2.BackgroundTransparency = 0.5
+		 frame2.BackgroundColor3 = color
+		local Gui3 = Instance.new("SurfaceGui",v.Character.HumanoidRootPart)
+	    Gui3.Name = "G3"
+	    Gui3.AlwaysOnTop = true
+		Gui3.Face = "Bottom"
+	   local frame3 = Instance.new("Frame")
+	     frame3.Size =  size
+	     frame3.Parent = v.Character.HumanoidRootPart.G3
+		 frame3.BackgroundTransparency = 0.5
+		 frame3.BackgroundColor3 = color
+		local Gui4 = Instance.new("SurfaceGui",v.Character.HumanoidRootPart)
+	    Gui4.Name = "G4"
+	    Gui4.AlwaysOnTop = true
+		Gui4.Face = "Left"
+	   local frame4 = Instance.new("Frame")
+	     frame4.Size =  size
+	     frame4.Parent = v.Character.HumanoidRootPart.G4
+		 frame4.BackgroundTransparency = 0.5
+		 frame4.BackgroundColor3 = color
+		local Gui5 = Instance.new("SurfaceGui",v.Character.HumanoidRootPart)
+	    Gui5.Name = "G5"
+	    Gui5.AlwaysOnTop = true
+		Gui5.Face = "Right"
+	   local frame5 = Instance.new("Frame")
+	     frame5.Size =  size
+	     frame5.Parent = v.Character.HumanoidRootPart.G5
+		 frame5.BackgroundTransparency = 0.5
+		 frame5.BackgroundColor3 = color
+		local Gui6 = Instance.new("SurfaceGui",v.Character.HumanoidRootPart)
+	    Gui6.Name = "G6"
+	    Gui6.AlwaysOnTop = true
+		Gui6.Face = "Top"
+	   local frame6 = Instance.new("Frame")
+	     frame6.Size =  size
+	     frame6.Parent = v.Character.HumanoidRootPart.G6
+		 frame6.BackgroundTransparency = 0.6
+		 frame6.BackgroundColor3 = color
+		local attach1 = Instance.new("Attachment")
+		attach1.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+		local attach2 = Instance.new("Attachment")
+		attach2.Parent = v.Character.HumanoidRootPart
+		local line = Instance.new("Beam")
+		line.Parent = Gui1
+		line.Attachment0 = attach1
+		line.Attachment1 = attach2
+		line.FaceCamera = true
+		line.Width0 = .1
+		line.Width1 = .1
+		frame1.BorderSizePixel = 0
+		frame2.BorderSizePixel = 0
+		frame3.BorderSizePixel = 0
+		frame4.BorderSizePixel = 0
+		frame5.BorderSizePixel = 0
+		frame6.BorderSizePixel = 0
+		local nametageframe = Instance.new("BillboardGui")
+		nametageframe.AlwaysOnTop = true
+		nametageframe.Parent = v.Character.Head
+		nametageframe.Size = size
+		local nametag = Instance.new("TextLabel")
+		nametag.Parent = nametageframe
+		nametag.Text = v.Name
+		nametageframe.Adornee = v.Character.Head
+		nametag.Size = size
+		nametag.BackgroundTransparency = 1
+		nametageframe.StudsOffset = Vector3.new(0,1,0)
+		nametag.TextSize = 15
+		nametag.TextColor3 = color
+		game.Players.LocalPlayer.CameraMaxZoomDistance = 8743274735782346
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+		Text = "Version 2, press r to unload script, updates will release AT: https://v3rmillion.net/showthread.php?tid=878202";
+		})
+		local mouse = game.Players.LocalPlayer:GetMouse()
+		mouse.KeyDown:connect(function(key)
+			if key == "-" then
+	     Gui1:Destroy()
+	     Gui2:Destroy()
+	     Gui3:Destroy()
+	     Gui4:Destroy()
+	     Gui5:Destroy()
+	     Gui6:Destroy()
+	     attach1:Destroy()
+	     attach2:Destroy()
+	nametageframe:Destroy()
+	end
+	    end)
+	end
