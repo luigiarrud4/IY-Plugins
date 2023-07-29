@@ -1,0 +1,30 @@
+local CoreGui = game:GetService("CoreGui")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local ScreenGui = CoreGui:FindFirstChild("MouseUnlockerGui") or Instance.new("ScreenGui")
+ScreenGui.Name = "MouseUnlockerGui"
+ScreenGui.Enabled = true
+ScreenGui.Parent = CoreGui
+
+local TextButton = Instance.new("TextButton")
+TextButton.Name = "ModalButton"
+TextButton.Modal = true
+TextButton.Size = UDim2.new(0, 0, 0, 0)
+TextButton.Position = UDim2.new(0, 0, 0, 0)
+TextButton.Visible = false
+TextButton.Parent = ScreenGui
+
+UserInputService.InputBegan:Connect(function(inputObject, gameProcessedEvent)
+    if inputObject.KeyCode == Enum.KeyCode.O then
+        TextButton.Visible = not TextButton.Visible
+    end
+end)
+
+RunService.Stepped:Connect(function()
+    if TextButton.Visible == true then
+        UserInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceShow
+    else
+        UserInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.None
+    end
+end)
